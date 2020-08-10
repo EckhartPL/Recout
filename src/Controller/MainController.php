@@ -35,4 +35,24 @@ class MainController extends AbstractController
 
         return new Response('Saved new Reviewer with ID: '.$reviewer->getId());
     }
+
+    /**
+     * @Route("/reviewer/{id}", name="get_reviewer")
+     */
+    public function getReviewer($id)
+    {
+        $reviewer = $this->getDoctrine()
+        ->getRepository(Reviewer::class)
+        ->find($id);
+
+        if(!$reviewer){
+            throw $this->createNotFoundException(
+                'No reviewer found for id '.$id
+            );
+        }
+
+        return $this->render('reviewer/get_reviewer.html.twig', 
+        ['name' => $reviewer->getName(),
+        'mail' => $reviewer->getMail()]);
+    }
 }
