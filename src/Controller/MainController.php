@@ -55,4 +55,19 @@ class MainController extends AbstractController
         ['name' => $reviewer->getName(),
         'mail' => $reviewer->getMail()]);
     }
+
+    /**
+     * @Route("/testing/{num}", name="testing")
+     */
+    public function testing($num)
+    {
+        //$searchedName = 'Mateusz';
+
+        //$names = $this->getDoctrine()->getRepository(Reviewer::class)->findAllWithName($searchedName);
+        //return new Response($names);
+        $arr = array(2, 4, 6, 7);
+        $this->render('testing.html.twig', 
+        ['arr' => $arr]);
+
+    }
 }

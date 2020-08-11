@@ -19,6 +19,23 @@ class ReviewerRepository extends ServiceEntityRepository
         parent::__construct($registry, Reviewer::class);
     }
 
+    /**
+     * @return Reviewer[]
+     */
+    public function findAllWithName($name): array
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            'SELECT r
+            FROM App\Entity\Reviewer r
+            WHERE r.name = :name
+            ORDER BY r.name ASC'
+        )->setParameter('name', $name);
+
+        return $query->getResult();
+    }
+
     // /**
     //  * @return Reviewer[] Returns an array of Reviewer objects
     //  */

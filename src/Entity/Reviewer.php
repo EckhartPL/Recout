@@ -20,7 +20,7 @@ class Reviewer
     /**
      * @ORM\Column(type="string", length=30)
      */
-    private $Name;
+    private $name;
 
     /**
      * @ORM\Column(type="string", length=30)
@@ -44,12 +44,12 @@ class Reviewer
 
     public function getName(): ?string
     {
-        return $this->Name;
+        return $this->name;
     }
 
-    public function setName(string $Name): self
+    public function setName(string $name): self
     {
-        $this->Name = $Name;
+        $this->name = $name;
 
         return $this;
     }
