@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Reviewer;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -68,6 +69,36 @@ class MainController extends AbstractController
         $arr = array(2, 4, 6, 7);
         $this->render('testing.html.twig', 
         ['arr' => $arr]);
+        //$repository= $this->getDoctrine()->getRepository(Reviewer::class)->findByExampleField($num);
+    }
 
+    /**
+     * @Route("/no", name="no")
+     */
+    public function noParameters(): Response
+    {
+        return $this->render('no_parameters.html.twig');
+    }
+
+    /**
+     * @Route("/mailer", name="mailer")
+     */
+    public function sentMail()
+    {
+        $mail = (new TemplatedEmail())
+        ->from('mateusz.masek@wp.pl')
+        ->to('mateusz.masek@szynaka-living.pl')
+        ->subject('Wiadomośc testowa mailer twig')
+
+        //path of the twig template to render
+        ->htmlTemplate('emails/signup.html.twig')
+
+        //pass variables (name => value) to the template
+        ->context([
+            'expiration_date' => new \DateTime('+7 Days'),
+            'username' => 'foo',
+        ]);
+
+        return new Response("Mail sent");
     }
 }

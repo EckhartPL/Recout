@@ -2,7 +2,18 @@
 <head>
 </head>
 <body>
-<h1>test</h1>
+<h1>Main Page</h1></br>
+<ol>
+    <li><p>Redirect to: <a href="{{ path('no') }}">No Parameters Page</a></p></li>
+</ol>
+<img src="{{ asset('/images/rodzaje-USB.png') }}" alt="Rodzaje USB"></img>
+<p>Username: {{ app.user.username ?? 'Anonymous user' }}</p>
+{% if app.debug %}
+    <p>Request method: {{ app.request.method }}</p>
+    <p>Application Environment: {{ app.environment }}</p>
+{% endif %}
+
+
 {# This is comment#}
 </body>
 </html>

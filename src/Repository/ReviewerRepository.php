@@ -18,10 +18,11 @@ class ReviewerRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Reviewer::class);
     }
-
+/*
     /**
      * @return Reviewer[]
      */
+    /*
     public function findAllWithName($name): array
     {
         $entityManager = $this->getEntityManager();
@@ -35,10 +36,11 @@ class ReviewerRepository extends ServiceEntityRepository
 
         return $query->getResult();
     }
-
-    // /**
-    //  * @return Reviewer[] Returns an array of Reviewer objects
-    //  */
+*/
+/*
+    /**
+    * @return Reviewer[] //Returns an array of Reviewer objects
+    */
     /*
     public function findByExampleField($value)
     {
@@ -51,8 +53,7 @@ class ReviewerRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
-    */
-
+*/
     /*
     public function findOneBySomeField($value): ?Reviewer
     {
