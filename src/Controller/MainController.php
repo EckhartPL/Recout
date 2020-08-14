@@ -92,6 +92,7 @@ class MainController extends AbstractController
 
         //path of the twig template to render
         ->htmlTemplate('emails/signup.html.twig')
+        //textTemplate('emails/signup.html.twig')
 
         //pass variables (name => value) to the template
         ->context([
